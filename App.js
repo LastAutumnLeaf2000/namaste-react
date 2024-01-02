@@ -1,3 +1,6 @@
+import React from "react"
+import ReactDOM from "react-dom/client"
+
 // const element = React.createElement("tag",{attributes},children)  //IMPORTANT
 
 

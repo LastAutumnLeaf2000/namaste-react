@@ -1,6 +1,9 @@
-import { LOGO_URL } from "./utils/constants";
+import { LOGO_URL } from "./utils/constants.js";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [login, setlogin] = useState("Login");
   return (
     <div className="header">
       <div className="logo">
@@ -8,11 +11,21 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>Contact Us</li>
-          <li>About Us</li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to={"/contact"} >Contact Us</Link></li>
+          <li><Link to="/about">About Us</Link></li>
           <li>
             <i className="fa-solid fa-cart-plus" />
+          </li>
+          <li>
+            <button
+              className="login"
+              onClick={() =>
+                login === "Login" ? setlogin("Logout") : setlogin("Login")
+              }
+            >
+              {login}
+            </button>
           </li>
         </ul>
       </div>

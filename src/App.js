@@ -3,6 +3,11 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import NoPage from "./components/NoPage";
+import RestaurantMenu from "./components/RestaurantMenu";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Header
 //  -Logo
@@ -15,13 +20,36 @@ import Footer from "./components/Footer";
 
 const AppLayout = () => {
   return (
-    <div className="app">
-      <Header />
-      <Body/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Body />} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} />
+          <Route path="/restaurants/:id" element={<RestaurantMenu />} />
+          {/* <Footer/> */}
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
+
+// const appRouter = createBrowserRouter([
+//   {
+//     path:"/",
+//     element:<AppLayout/>
+//   },
+//   {
+//     path:"/about",
+//     element:<About/>
+//   },
+//   {
+//     path:"/contact",
+//     element:<Contact/>
+//   },
+// ])
 
 export default AppLayout;
 

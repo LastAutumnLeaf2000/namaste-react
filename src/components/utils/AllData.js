@@ -1,6 +1,5 @@
 export const AllData = [
   {
-    type: "restaurant",
     info: {
       resId: 20524870,
       name: "Mio Amore",
@@ -111,7 +110,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/mio-amore-4-beliaghata/order",
+        clickUrl: "mio-amore-4-beliaghata",
       },
     },
     gold: [],
@@ -262,7 +261,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/bhikharam-chandmal-1-dalhousie-bbd-bagh/order",
+        clickUrl: "bhikharam-chandmal-1-dalhousie-bbd-bagh",
       },
     },
     gold: [],
@@ -415,7 +414,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/sharma-sweets-bara-bazar/order",
+        clickUrl: "sharma-sweets-bara-bazar",
       },
     },
     gold: [],
@@ -574,7 +573,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/pizza-hut-park-circus-area/order",
+        clickUrl: "pizza-hut-park-circus-area",
       },
     },
     gold: [],
@@ -721,7 +720,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/chennai-square-sector-3-salt-lake/order",
+        clickUrl: "chennai-square-sector-3-salt-lake",
       },
     },
     gold: [],
@@ -863,7 +862,7 @@ export const AllData = [
       actionInfo: {
         text: "Order Now",
         clickUrl:
-          "/kolkata/kwality-walls-frozen-dessert-and-ice-cream-shop-college-street/order",
+          "kwality-walls-frozen-dessert-and-ice-cream-shop-college-street",
       },
     },
     gold: [],
@@ -1020,7 +1019,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/wow-momo-1-paddapukur/order",
+        clickUrl: "wow-momo-1-paddapukur",
       },
     },
     gold: [],
@@ -1165,7 +1164,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/tea-junction-loudon-street-area/order",
+        clickUrl: "tea-junction-loudon-street-area",
       },
     },
     gold: [],
@@ -1348,7 +1347,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/bhikharam-chandmal-rajuji-girish-park/order",
+        clickUrl: "bhikharam-chandmal-rajuji-girish-park",
       },
     },
     gold: [],
@@ -1505,7 +1504,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/machhli-baba-fries-chandni-chowk/order",
+        clickUrl: "machhli-baba-fries-chandni-chowk",
       },
     },
     gold: [],
@@ -1669,7 +1668,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/kaligodam-1-bara-bazar/order",
+        clickUrl: "kaligodam-1-bara-bazar",
       },
     },
     gold: [],
@@ -1827,7 +1826,7 @@ export const AllData = [
       hasOnlineOrdering: true,
       actionInfo: {
         text: "Order Now",
-        clickUrl: "/kolkata/sharma-snacks-1-kasba/order",
+        clickUrl: "sharma-snacks-1-kasba",
       },
     },
     gold: [],

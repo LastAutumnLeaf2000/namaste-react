@@ -6,8 +6,11 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import NoPage from "./components/NoPage";
-import RestaurantMenu from "./components/RestaurantMenu";
+// import RestaurantMenu from "./components/RestaurantMenu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+//Lazy Loading
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 
 // Header
 //  -Logo
@@ -25,10 +28,17 @@ const AppLayout = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Body />} />
-          <Route path="/about" element={<About/>} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
-          <Route path="/restaurants/:id" element={<RestaurantMenu />} />
+          <Route
+            path="/restaurants/:id"
+            element={
+              <Suspense fallback={<h1>Loading...</h1>}>
+                <RestaurantMenu />
+              </Suspense>
+            }
+          />
           {/* <Footer/> */}
         </Routes>
       </div>

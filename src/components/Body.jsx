@@ -1,14 +1,14 @@
 import { AllData } from "./utils/AllData";
 import Card from "./Card";
-import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "./utils/useOnlineStatus";
 
 const Body = () => {
   const [resData, setresData] = useState(AllData);
   const [searchText, setsearchText] = useState("");
 
-  // useEffect(() => {
+  // useEffect(() => { //wanted to use Swiggy API but it keeps changing in few days
   //   // fetchData();
   // }, []);
 
@@ -30,12 +30,18 @@ const Body = () => {
         searchData?.info?.name?.toLowerCase().includes(searchText.toLowerCase())
       )
     );
-    setsearchText("");
+    setsearchText(""); //empties the search-box after Search
   };
+
+  //Online Status check
+  const onlineStatus = useOnlineStatus();
+  if(onlineStatus===false){
+    return (<div className="heading"><h1>Oops! It looks like you're Offline</h1></div>)
+  }
 
   if (!resData.length) {
     //Conditional Rendering if else
-    return <h1 style={{ marginLeft: "40%" }}>No Results Found!</h1>;
+    return <div className="heading"><h1>No Results Found!</h1></div>;
     // return <Shimmer />
   }
 

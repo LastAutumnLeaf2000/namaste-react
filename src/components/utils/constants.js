@@ -4,4 +4,4 @@ export const LOGO_URL =
 export const MENU_URL =
   "https://www.zomato.com/webroutes/getPage?page_url=/kolkata/";
 
-export const MENU_URL2 = "/order&location=&isMobile=0"
+export const MENU_URL2 = "/order&location=&isMobile=0";

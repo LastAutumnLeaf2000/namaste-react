@@ -1,30 +1,34 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { MENU_URL } from "./utils/constants.js";
-import { MENU_URL2 } from "./utils/constants.js";
+import useOnlineStatus from "./utils/useOnlineStatus.js";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "./utils/useRestaurantMenu.js";
 
 const RestaurantMenu = () => {
-  const [resInfo, setresInfo] = useState(null);
+  // const [resInfo, setresInfo] = useState(null);//Moved this to a new component
 
-  // const params = useParams()
-  // console.log(params) //params={Id:svfg}
-
+  // const params = useParams() // params={id : mio-amore-4-beliaghata}
   const { id } = useParams();
   console.log(id);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const resInfo = useRestaurantMenu(id); //custom hook
 
-  const fetchData = async () => {
-    const raw = await fetch(MENU_URL + id + MENU_URL2);
-    const json = await raw.json();
+  // useEffect(() => { //Moved this to a new component
+  //   fetchData();
+  // }, []);
 
-    console.log(json);
-    setresInfo(json);
-  };
+  // const fetchData = async () => {
+  //   const raw = await fetch(MENU_URL + id + MENU_URL2);
+  //   const json = await raw.json();
+
+  //   console.log(json);
+  //   setresInfo(json);
+  // };
+
+  const onlineStatus = useOnlineStatus();
+  if(onlineStatus===false){
+    return <div className="heading"><h1>Oops! Looks like you are Offline</h1></div>
+  }
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -40,9 +44,6 @@ const RestaurantMenu = () => {
         <h3>{cuisine_string}</h3>
       </div>
       <div className="menu" style={{ marginTop: "20px" }}>
-        {/* <h2 style={{ marginBottom: "40px", textDecoration: "underline" }}>
-          Menu List
-        </h2> */}
         <ol>
           {resInfo?.page_data?.order?.menuList?.menus.map((data) => (
             <div key={data.menu.id}>

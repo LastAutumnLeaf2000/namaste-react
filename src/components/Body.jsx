@@ -46,38 +46,40 @@ const Body = () => {
   }
 
   return (
-    <div className="body">
+    <div className="body mx-10">
       <div className="heading">
         <h1>Restaurants</h1>
       </div>
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex items-center">
+        <div className="search my-4">
           <form action="" onSubmit={handleSearch}>
             <input
               type="text"
-              className="search-bar"
+              className="search-bar border border-black rounded-lg p-1.5 w-80"
               value={searchText}
               onChange={(e) => setsearchText(e.target.value)}
             />
-            <button type="submit" className="search-btn">
+            <button type="submit" className="search-btn ml-4 mr-24 bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-full">
               Search
             </button>
           </form>
         </div>
+        <div>
         <button
-          className="filter-btn"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-2xl"
           onClick={() => {
             setresData(
               resData.filter((data) => data.info.rating.rating_text >= 4)
             );
           }}
         >
-          <h3>
+          <h3> 
             Top Rated Restaurants above 4<i className="fa-solid fa-star"></i>
           </h3>
         </button>
+        </div>
       </div>
-      <div className="card-container">
+      <div className="card-container flex flex-wrap justify-between">
         {resData.map((restaurant) => (
           <Link
             to={"/restaurants/" + restaurant.order.actionInfo.clickUrl}

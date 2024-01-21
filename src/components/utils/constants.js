@@ -1,5 +1,5 @@
 export const LOGO_URL =
-  "https://assets.materialup.com/uploads/48bcfff3-16f2-48fb-b022-1216add0c1ca/preview.jpg";
+"https://cdn.dribbble.com/users/10878172/screenshots/19404174/media/552ef88469f97ec295448441165c3c58.png?resize=400x300&vertical=center";
 
 export const MENU_URL =
   "https://www.zomato.com/webroutes/getPage?page_url=/kolkata/";

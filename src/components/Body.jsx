@@ -47,7 +47,7 @@ const Body = () => {
 
   return (
     <div className="body mx-10">
-      <div className="heading">
+      <div className="heading text-center font-semibold text-4xl mt-5 mb-2">
         <h1>Restaurants</h1>
       </div>
       <div className="filter flex items-center">

@@ -1,1 +1,1 @@
-# Namaste React Episode 1
+# Namaste React BBQ Restaurant

@@ -1,27 +1,18 @@
 import { AllData } from "./utils/AllData";
-import Card from "./Card";
-import { useState } from "react";
+import Card, { Promoted } from "./Card";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "./utils/useOnlineStatus";
+import UserContext from "./utils/UserContext.js";
+import useOnlineStatus from "./utils/useOnlineStatus.js";
 
 const Body = () => {
   const [resData, setresData] = useState(AllData);
   const [searchText, setsearchText] = useState("");
 
-  // useEffect(() => { //wanted to use Swiggy API but it keeps changing in few days
-  //   // fetchData();
-  // }, []);
+  const { setuser, user } = useContext(UserContext);
 
-  // const fetchData = async () => {
-  //   const raw = await fetch(
-  //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-  //   );
-
-  //   const data = await raw.json();
-  //   console.log(
-  //     data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-  //   );
-  // };
+  const PromotedCard = Promoted(Card); //passing the Card component to the higher order component
+  //and creating a new component PromotedCard
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -35,13 +26,21 @@ const Body = () => {
 
   //Online Status check
   const onlineStatus = useOnlineStatus();
-  if(onlineStatus===false){
-    return (<div className="heading"><h1>Oops! It looks like you're Offline</h1></div>)
+  if (onlineStatus === false) {
+    return (
+      <div className="font-bold flex justify-center mt-4 text-xl">
+        <h1>Oops! It looks like you're Offline</h1>
+      </div>
+    );
   }
 
   if (!resData.length) {
     //Conditional Rendering if else
-    return <div className="heading"><h1>No Results Found!</h1></div>;
+    return (
+      <div className="font-bold flex justify-center mt-4 text-xl">
+        <h1>No Results Found!</h1>
+      </div>
+    );
     // return <Shimmer />
   }
 
@@ -59,33 +58,47 @@ const Body = () => {
               value={searchText}
               onChange={(e) => setsearchText(e.target.value)}
             />
-            <button type="submit" className="search-btn ml-4 mr-24 bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-full">
+            <button
+              type="submit"
+              className="search-btn ml-4 mr-15 bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-full"
+            >
               Search
             </button>
+
+            <label className="ml-32 text-xl font-bold">User ➯</label>
+            <input
+              type="text"
+              className="search-bar border ml-2 mr-14 border-black rounded-lg p-1.5 w-80"
+              value={user}
+              maxLength={10}
+              onChange={(e) => setuser(e.target.value)}
+            />
           </form>
         </div>
-        <div>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-2xl"
-          onClick={() => {
-            setresData(
-              resData.filter((data) => data.info.rating.rating_text >= 4)
-            );
-          }}
-        >
-          <h3> 
-            Top Rated Restaurants above 4<i className="fa-solid fa-star"></i>
-          </h3>
-        </button>
+        <div className="ml-36">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-2xl"
+            onClick={() => {
+              setresData(
+                resData.filter((data) => data.info.rating.rating_text >= 4)
+              );
+            }}
+          >
+            <h3>
+              Top Rated Restaurants above 4<i className="fa-solid fa-star"></i>
+            </h3>
+          </button>
         </div>
       </div>
-      <div className="card-container flex flex-wrap justify-between">
+      <div className="card-container flex flex-wrap">
         {resData.map((restaurant) => (
           <Link
             to={"/restaurants/" + restaurant.order.actionInfo.clickUrl}
             key={restaurant.info.resId}
           >
-            <Card resdata={restaurant} />
+            {
+              restaurant.info.promoted ? <PromotedCard resdata = {restaurant} /> : <Card resdata={restaurant}/>
+            }
           </Link>
         ))}
       </div>

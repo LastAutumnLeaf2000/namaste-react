@@ -1,6 +1,7 @@
 export const AllData = [
   {
     info: {
+      promoted:false,
       resId: 20524870,
       name: "Mio Amore",
       image: {
@@ -152,6 +153,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:false,
       resId: 24470,
       name: "Bhikharam Chandmal",
       image: {
@@ -311,6 +313,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:true,
       resId: 18924573,
       name: "Sharma Sweets",
       image: {
@@ -464,6 +467,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:true,
       resId: 23822,
       name: "Pizza Hut",
       image: {
@@ -623,6 +627,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:false,
       resId: 18899191,
       name: "Chennai Square",
       image: {
@@ -770,6 +775,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:false,
       resId: 20359535,
       name: "Kwality Wall's Frozen Dessert And Ice Cream Shop",
       image: {
@@ -905,6 +911,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:true,
       resId: 20580173,
       name: "WOW! Momo",
       image: {
@@ -1061,6 +1068,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:false,
       resId: 24278,
       name: "Tea Junction",
       image: {
@@ -1214,6 +1222,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:true,
       resId: 20133711,
       name: "Bhikharam Chandmal Rajuji",
       image: {
@@ -1389,6 +1398,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:false,
       resId: 18568387,
       name: "Machhli Baba Fries",
       image: {
@@ -1554,6 +1564,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:false,
       resId: 18547335,
       name: "Kaligodam",
       image: {
@@ -1718,6 +1729,7 @@ export const AllData = [
   {
     type: "restaurant",
     info: {
+      promoted:true,
       resId: 19048967,
       name: "Sharma Snacks",
       image: {

@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "./utils/useOnlineStatus.js";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "./utils/useRestaurantMenu.js";
+import RestaurantCard from "./RestaurantCard.js";
 
 const RestaurantMenu = () => {
+
+  const [showIndex, setshowIndex] = useState(null)
+
   // const [resInfo, setresInfo] = useState(null);//Moved this to a new component
 
   // const params = useParams() // params={id : mio-amore-4-beliaghata}
@@ -20,14 +24,11 @@ const RestaurantMenu = () => {
   // const fetchData = async () => {
   //   const raw = await fetch(MENU_URL + id + MENU_URL2);
   //   const json = await raw.json();
-
-  //   console.log(json);
-  //   setresInfo(json);
-  // };
+  //   setresInfo(json);};
 
   const onlineStatus = useOnlineStatus();
   if(onlineStatus===false){
-    return <div className="heading"><h1>Oops! Looks like you are Offline</h1></div>
+    return <div className="heading font-bold flex justify-center mt-4 text-xl"><h1>Oops! Looks like you are Offline</h1></div>
   }
 
   if (resInfo === null) {
@@ -39,36 +40,19 @@ const RestaurantMenu = () => {
 
   return (
     <div className="restaurant-info">
-      <div className="heading">
-        <h1>{name}</h1>
-        <h3>{cuisine_string}</h3>
+      <div className="heading text-center my-5">
+        <h1 className="font-bold text-3xl mb-2">{name}</h1>
+        <h3 className="font-semibold text-xl">{cuisine_string}</h3>
       </div>
-      <div className="menu" style={{ marginTop: "20px" }}>
-        <ol>
-          {resInfo?.page_data?.order?.menuList?.menus.map((data) => (
-            <div key={data.menu.id}>
-              <h3>
-                <li style={{ color: "red", textDecoration: "underline" }}>
-                  {data.menu.name}
-                </li>
-              </h3>
-              <ul>
-                <div className="menu-container">
-                  {data.menu.categories[0].category.items.map((menu) => (
-                    <div className="menu-card" key={menu.item.id}>
-                      <img src={menu.item.item_image_thumb_url} alt="" />
-                      <h4>{menu.item.name}</h4>
-                      <h6 style={{ marginTop: "15px" }}>{menu.item.desc}</h6>
-                      <h5 style={{ marginTop: "15px" }}>
-                        ₹ {menu.item.price || menu.item.max_price}
-                      </h5>
-                    </div>
-                  ))}
-                </div>
-              </ul>
-            </div>
+      <div className="menu mt-20">
+          {resInfo?.page_data?.order?.menuList?.menus.map((data, index) => (
+            <RestaurantCard key={data.menu.id} 
+            data={data} 
+            showItem = {index== showIndex ? true : false}
+            setshowIndex={()=>index!==showIndex?setshowIndex(index):setshowIndex(null)}
+            />//on first click setshowIndex(index) so value of "showindex" becomes index so "showItem" becomes true and the Accordion opens that particular card.
+            //on second click on same card setshowIndex(null) so showItem becomes false so the accordion closes.
           ))}
-        </ol>
       </div>
     </div>
   );

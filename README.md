@@ -1,1 +1,1 @@
-# Namaste React Restaurant-Menu
+# Namaste React Menu Discovery Platform

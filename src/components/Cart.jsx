@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem, emptyCart } from './utils/cartSlice';
 
+
 const Cart = () => {
   const cartItems = useSelector((store)=>store.cart.items)
   const dispatch = useDispatch()
@@ -23,7 +24,7 @@ const Cart = () => {
             {cartItems?.map((menu,index) => (
               <div
                 className="menu-card mx-4 mr-12 border-gray-300 border-b-2 py-4 pl-6 flex justify-between"
-                key={menu.item.id + index}
+                key={index}
               >
                 <div>
                   <div className="mb-2 flex">

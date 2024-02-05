@@ -14,7 +14,7 @@ const RestaurantCard = ({ data, showItem, setshowIndex }) => {
   // console.log(dispatch)//returns function
   const handleAddItem = (menu) => {
     console.log(menu); //adding the food items to the cart
-    dispatch(addItems(menu)); //{payload:items}
+    dispatch(addItems(menu)); //{payload: menu obj}
     // alert(items?.item?.name + " has been Added to the Cart!");
   };
   return (

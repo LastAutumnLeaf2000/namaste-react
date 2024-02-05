@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import NoPage from "./components/NoPage";
+import Login from "./components/User/Login";
+import Register from "./components/User/Register";
 import UserContext from "./components/utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./components/utils/appStore";
@@ -41,6 +43,8 @@ const AppLayout = () => {
 
           <Routes>
             <Route path="/" element={<Body />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />

@@ -77,7 +77,7 @@ const Body = () => {
             />
           </form>
         </div>
-        <div className="block lg:inline lg:ml-36">
+        <div className="hidden lg:inline lg:ml-36">
           <button
             className=" bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-2xl"
             onClick={() => {

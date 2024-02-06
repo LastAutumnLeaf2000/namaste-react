@@ -28,7 +28,13 @@ const RestaurantCard = ({ data, showItem, setshowIndex }) => {
           <span className="text-xl font-bold">
             {name}({categories[0]?.category?.items?.length})
           </span>
-          <span className="text-2xl">⬇</span>
+          <span className="text-2xl">
+            <img
+              className="w-6"
+              src="https://cdn-icons-png.flaticon.com/128/32/32195.png"
+              alt=""
+            />
+          </span>
         </div>
         {showItem && ( //if true show the whole component
           <div className="menu-container">

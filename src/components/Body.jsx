@@ -60,7 +60,7 @@ const Body = () => {
             />
             <button
               type="submit"
-              className="search-btn lg:ml-4 mr-2 lg:mr-15 bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-2 lg:px-4 rounded-lg"
+              className="search-btn lg:ml-4 lg:mr-2 lg:mr-15 bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-2 lg:px-4 rounded-lg"
             >
               Search
             </button>

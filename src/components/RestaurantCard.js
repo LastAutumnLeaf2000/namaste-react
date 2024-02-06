@@ -28,7 +28,7 @@ const RestaurantCard = ({ data, showItem, setshowIndex }) => {
           <span className="text-xl font-bold">
             {name}({categories[0]?.category?.items?.length})
           </span>
-          <span className="text-2xl">🡇</span>
+          <span className="text-2xl">🔽</span>
         </div>
         {showItem && ( //if true show the whole component
           <div className="menu-container">

@@ -11,9 +11,13 @@ const useRestaurantMenu = (id) => {
   }, []);
 
   const fetchData = async () => {
-    const raw = await fetch(MENU_URL + id + MENU_URL2);
-    const json = await raw.json();
-    setresInfo(json);
+    try {
+      const raw = await fetch(MENU_URL + id + MENU_URL2);
+      const json = await raw.json();
+      setresInfo(json);
+    } catch (err) {
+      console.log(err);
+    }
   };
   console.log(resInfo);
 

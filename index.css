@@ -16,6 +16,16 @@
   background-color: rgb(219, 235, 235);
   margin: 10px;
 }
+@media screen and (max-width: 900px){
+  .shimmer-container{
+    display: block;
+    flex-wrap: nowrap;
+  }
+  .shimmer-card{
+    width: auto;
+    height:200px;
+  }
+}
  /* * {
   margin: 0;
   padding: 0;

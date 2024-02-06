@@ -54,30 +54,32 @@ const Body = () => {
           <form action="" onSubmit={handleSearch}>
             <input
               type="text"
-              className="search-bar border border-black rounded-lg p-1.5 w-80"
+              className="search-bar border border-black rounded-lg p-1.5 lg:w-80"
               value={searchText}
               onChange={(e) => setsearchText(e.target.value)}
             />
             <button
               type="submit"
-              className="search-btn ml-4 mr-15 bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-full"
+              className="search-btn lg:ml-4 mr-2 lg:mr-15 bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-2 lg:px-4 rounded-full"
             >
               Search
             </button>
 
-            <label className="ml-32 text-xl font-bold">User ➯</label>
+            <label className="hidden lg:inline ml-32 text-xl font-bold">
+              User ➯
+            </label>
             <input
               type="text"
-              className="search-bar border ml-2 mr-14 border-black rounded-lg p-1.5 w-80"
+              className="hidden lg:inline search-bar border ml-2 mr-14 border-black rounded-lg p-1.5 w-80"
               value={user}
               maxLength={10}
               onChange={(e) => setuser(e.target.value)}
             />
           </form>
         </div>
-        <div className="ml-36">
+        <div className="block lg:inline lg:ml-36">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-2xl"
+            className=" bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded-2xl"
             onClick={() => {
               setresData(
                 resData.filter((data) => data.info.rating.rating_text >= 4)
@@ -85,20 +87,22 @@ const Body = () => {
             }}
           >
             <h3>
-              Top Rated Restaurants above 4<i className="fa-solid fa-star"></i>
+              4<i className="fa-solid fa-star"></i>
             </h3>
           </button>
         </div>
       </div>
-      <div className="card-container flex flex-wrap">
+      <div className="card-container lg:flex lg:flex-wrap mt-8 lg:mt-0">
         {resData.map((restaurant) => (
           <Link
             to={"/restaurants/" + restaurant.order.actionInfo.clickUrl}
             key={restaurant.info.resId}
           >
-            {
-              restaurant.info.promoted ? <PromotedCard resdata = {restaurant} /> : <Card resdata={restaurant}/>
-            }
+            {restaurant.info.promoted ? (
+              <PromotedCard resdata={restaurant} />
+            ) : (
+              <Card resdata={restaurant} />
+            )}
           </Link>
         ))}
       </div>

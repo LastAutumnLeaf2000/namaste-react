@@ -19,7 +19,7 @@ const RestaurantCard = ({ data, showItem, setshowIndex }) => {
   };
   return (
     <>
-      <div className="bg-gray-50 shadow-lg my-8 w-2/4 mx-auto select-none">
+      <div className="bg-gray-50 shadow-lg my-4 lg:my-8 lg:w-2/4 mx-auto select-none">
         <div
           className="flex justify-between p-4 cursor-pointer"
           id={id}
@@ -38,7 +38,7 @@ const RestaurantCard = ({ data, showItem, setshowIndex }) => {
                 key={menu.item.id}
               >
                 <div>
-                  <div className="mb-2 flex">
+                  <div className="mb-2 lg:flex">
                     <span className="font-semibold">{menu?.item?.name}</span>
                     <span className="font-semibold">
                       - ₹
@@ -46,18 +46,20 @@ const RestaurantCard = ({ data, showItem, setshowIndex }) => {
                         Math.floor(menu.item.max_price)}
                     </span>
                   </div>
-                  <h6 className="text-xs p-2">{menu?.item?.desc}</h6>
+                  <h6 className="hidden lg:inline text-xs p-2">
+                    {menu?.item?.desc}
+                  </h6>
                 </div>
                 <button
-                  className="absolute bg-black text-white px-2 rounded-md ml-[622px] text-xs h-10 hover:bg-gray-600 font-medium"
-                  onClick={() =>handleAddItem(menu)}
+                  className="absolute bg-black text-white px-1 lg:px-2 rounded-md ml-[67vw] lg:ml-[622px] text-xs h-6 lg:h-10 hover:bg-gray-600 font-medium"
+                  onClick={() => handleAddItem(menu)}
                 >
                   Add +
                 </button>
 
                 {menu?.item?.item_image_thumb_url ? (
                   <img
-                    className="w-24"
+                    className=" h-20 lg:w-24"
                     src={menu?.item?.item_image_thumb_url}
                   />
                 ) : null}

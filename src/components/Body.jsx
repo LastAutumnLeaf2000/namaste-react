@@ -49,18 +49,18 @@ const Body = () => {
       <div className="heading text-center font-semibold text-4xl mt-5 mb-2">
         <h1>Restaurants</h1>
       </div>
-      <div className="filter flex items-center">
+      <div className="filter flex justify-center items-center">
         <div className="search my-4">
           <form action="" onSubmit={handleSearch}>
             <input
               type="text"
-              className="search-bar border border-black rounded-lg p-1.5 lg:w-80"
+              className="search-bar border border-black rounded-lg p-1.5 w-3/5 lg:w-80"
               value={searchText}
               onChange={(e) => setsearchText(e.target.value)}
             />
             <button
               type="submit"
-              className="search-btn lg:ml-4 mr-2 lg:mr-15 bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-2 lg:px-4 rounded-full"
+              className="search-btn lg:ml-4 mr-2 lg:mr-15 bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-2 lg:px-4 rounded-lg"
             >
               Search
             </button>

@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { addItems } from "./utils/cartSlice";
+import { toast } from "react-toastify";
 
 const RestaurantCard = ({ data, showItem, setshowIndex }) => {
   // console.log(data);
@@ -14,6 +15,7 @@ const RestaurantCard = ({ data, showItem, setshowIndex }) => {
   // console.log(dispatch)//returns function
   const handleAddItem = (menu) => {
     console.log(menu); //adding the food items to the cart
+    toast.success(menu?.item?.name + " Added to Cart");
     dispatch(addItems(menu)); //{payload: menu obj}
     // alert(items?.item?.name + " has been Added to the Cart!");
   };
@@ -32,7 +34,7 @@ const RestaurantCard = ({ data, showItem, setshowIndex }) => {
             <img
               className="w-6"
               src="https://cdn-icons-png.flaticon.com/128/32/32195.png"
-              alt=""
+              alt="DOWN ARROW"
             />
           </span>
         </div>

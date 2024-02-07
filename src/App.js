@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import Footer from "./components/Footer";
 import About from "./components/About";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Contact from "./components/Contact";
 import NoPage from "./components/NoPage";
 import Login from "./components/User/Login";
@@ -82,4 +83,4 @@ const AppLayout = () => {
 export default AppLayout;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />); //"render" method converts the object into HTML tag("h1") and puts it inside the "root id" inside the html file and replaces any file already present inside the "root div" in html file
+root.render(<><AppLayout /><ToastContainer/></>); //"render" method converts the object into HTML tag("h1") and puts it inside the "root id" inside the html file and replaces any file already present inside the "root div" in html file

@@ -1,12 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem, emptyCart } from "./utils/cartSlice";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
-  const handleDeleteItem = (item) => {
+  const handleDeleteItem = (item, menu) => {
     console.log(item);
+    toast.dark(menu?.item?.name+" Removed from Cart")
     dispatch(removeItem(item)); //calling the reducer function
   };
 
@@ -47,7 +49,7 @@ const Cart = () => {
             </div>
             <button
               className="absolute bg-black text-white px-2 rounded-md ml-[65vw] lg:ml-[622px] text-xs h-10 hover:bg-gray-600 font-medium"
-              onClick={() => handleDeleteItem(index)}
+              onClick={() => handleDeleteItem(index, menu)}
             >
               Delete
             </button>

@@ -45,7 +45,7 @@ const Cart = () => {
                     Math.floor(menu.item.max_price)}
                 </span>
               </div>
-              <h6 className="text-xs p-2">{menu?.item?.desc}</h6>
+              <h6 className="text-xs p-2">{menu?.item?.desc.slice(0,100)}</h6>
             </div>
             <button
               className="absolute bg-black text-white px-2 rounded-md ml-[65vw] lg:ml-[622px] text-xs h-10 hover:bg-gray-600 font-medium"
